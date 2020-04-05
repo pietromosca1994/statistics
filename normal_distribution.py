@@ -1,5 +1,5 @@
 import numpy as np
-import scipy
+from scipy.special import erf
 
 class normal_distribution():
     def __init__(self, x, mean, variance):
@@ -21,7 +21,7 @@ class normal_distribution():
         self.scale=np.sqrt(self.variance)
         self.x=x
         self.pdf=(1/self.scale*np.sqrt(2*np.pi))*np.exp(-0.5*((self.x-self.mean)/self.scale)**2)
-        self.cdf=0.5*(1+scipy.special.erf((self.x-self.mean)/(self.scale*np.sqrt(2))))
+        self.cdf=0.5*(1+erf((self.x-self.mean)/(self.scale*np.sqrt(2))))
         
         return
     
